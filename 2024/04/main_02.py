@@ -11,10 +11,10 @@ def count_diag(matrix: list[str]) -> int:
                 ur_i, ur_j = i-1, j+1
                 ll_i, ll_j = i+1, j-1
                 lr_i, lr_j = i+1, j+1
+
                 if next_chars_ref.get(matrix[ur_i][ur_j], "1") == matrix[ll_i][ll_j]:
-                    count += 1
-                if next_chars_ref.get(matrix[ul_i][ul_j], "2") == matrix[lr_i][lr_j]:
-                    count += 1
+                    if next_chars_ref.get(matrix[ul_i][ul_j], "2") == matrix[lr_i][lr_j]:
+                        count += 1
             j += 1
         i += 1
 
