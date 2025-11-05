@@ -17,7 +17,7 @@ def calc(curr_result: int, next_digit_index: int, target_result: int, digits: li
 
 
 def main():
-    input_fn = "input_ex.txt"
+    input_fn = "input_all.txt"
     equations = []
 
     with open(input_fn) as f:
@@ -27,9 +27,13 @@ def main():
             digits = [int(n) for n in initial_split[1].split()]
             equations.append((result, digits))
 
-    for equation in equations:
-        res = calc(0, 0, equation[0], equation[1])
-        print(f"{res} -> {equation[0]}: {equation[1]}")
+    total = 0
+    for result, digits in equations:
+        res = calc(0, 0, result, digits)
+        if res:
+            total += result
+
+    print(total)
 
 
 main()
