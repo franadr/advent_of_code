@@ -1,5 +1,5 @@
-def calc(curr_result: int, next_digit_index: int, target_result: int, digits: list[int])-> bool:
-    if next_digit_index == len(digits): 
+def calc(curr_result: int, next_digit_index: int, target_result: int, digits: list[int]) -> bool:
+    if next_digit_index == len(digits):
         return curr_result == target_result
 
     if curr_result > target_result:
@@ -7,7 +7,7 @@ def calc(curr_result: int, next_digit_index: int, target_result: int, digits: li
 
     int_string = int(f"{curr_result}{digits[next_digit_index]}")
 
-    return calc(curr_result + digits[next_digit_index], next_digit_index+1, target_result, digits) or calc(curr_result * digits[next_digit_index], next_digit_index+1, target_result, digits) or calc(int_string, next_digit_index+1, target_result, digits)
+    return calc(curr_result + digits[next_digit_index], next_digit_index + 1, target_result, digits) or calc(curr_result * digits[next_digit_index], next_digit_index + 1, target_result, digits) or calc(int_string, next_digit_index + 1, target_result, digits)
 
 
 def main():

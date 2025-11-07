@@ -1,17 +1,17 @@
 
 
-def calc(curr_result: int, next_digit_index: int, target_result: int, digits: list[int])-> bool:
+def calc(curr_result: int, next_digit_index: int, target_result: int, digits: list[int]) -> bool:
     if curr_result == target_result:
         return True
 
-    if curr_result > target_result or next_digit_index > len(digits)-1:
+    if curr_result > target_result or next_digit_index > len(digits) - 1:
         return False
 
     inter_result = curr_result + digits[next_digit_index]
-    res = calc(inter_result, next_digit_index+1, target_result, digits)
+    res = calc(inter_result, next_digit_index + 1, target_result, digits)
     if not res:
         inter_result = curr_result * digits[next_digit_index]
-        return calc(inter_result, next_digit_index+1, target_result, digits)
+        return calc(inter_result, next_digit_index + 1, target_result, digits)
     else:
         return True
 
