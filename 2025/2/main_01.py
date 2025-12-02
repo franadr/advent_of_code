@@ -21,8 +21,6 @@ def main():
         start, end = pairs
         for i in range(int(start), int(end) + 1):
             size = len(str(i))
-            if size % 2 != 0:
-                continue
             mid = size // 2
             left, right = str(i)[:mid], str(i)[mid:]
             if left == right:
